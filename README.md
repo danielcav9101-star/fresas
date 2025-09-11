@@ -21,6 +21,7 @@
         <li><a href="#inicio" class="hover:text-pink-500">Inicio</a></li>
         <li><a href="#productos" class="hover:text-pink-500">Productos</a></li>
         <li><a href="#info" class="hover:text-pink-500">Información</a></li>
+        <li><a href="#encuesta" class="hover:text-pink-500">Encuesta</a></li>
         <li><a href="#contacto" class="hover:text-pink-500">Servicio al Cliente</a></li>
       </ul>
     </nav>
@@ -41,6 +42,7 @@
   <!-- PRODUCTOS -->
   <section id="productos" class="container mx-auto py-20 px-6">
     <h3 class="text-3xl font-bold text-center text-pink-700 mb-12">Nuestros Productos</h3>
+    
     <div class="grid md:grid-cols-3 gap-8">
       <div class="bg-white rounded-2xl shadow p-6 text-center transform transition hover:scale-105 hover:shadow-lg">
         <h4 class="text-xl font-bold text-pink-600">Clásico</h4>
@@ -76,6 +78,45 @@
     </div>
   </section>
 
+  <!-- ENCUESTA -->
+  <section id="encuesta" class="container mx-auto py-20 px-6">
+    <h3 class="text-3xl font-bold text-center text-pink-700 mb-12">Encuesta de Opinión</h3>
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow p-8">
+      <form action="https://formspree.io/f/xvgblleq" method="POST" class="space-y-6">
+        
+        <label class="block">
+          <span class="font-semibold">¿Cuál sabor prefieres?</span>
+          <select name="sabor" class="w-full border rounded-lg p-3 mt-2 focus:outline-pink-500" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Clásico">Clásico</option>
+            <option value="Maracuyá">Maracuyá</option>
+            <option value="Oreo">Oreo</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="font-semibold">¿Qué precio te parece justo?</span>
+          <select name="precio" class="w-full border rounded-lg p-3 mt-2 focus:outline-pink-500" required>
+            <option value="">Selecciona una opción</option>
+            <option value="4000">4.000 COP</option>
+            <option value="5000">5.000 COP</option>
+            <option value="6000">6.000 COP</option>
+            <option value="7000">7.000 COP</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="font-semibold">¿Qué opinas de nuestro producto?</span>
+          <textarea name="opinion" placeholder="Escribe tu opinión aquí..." class="w-full border rounded-lg p-3 mt-2 focus:outline-pink-500" rows="4" required></textarea>
+        </label>
+
+        <button type="submit" class="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-700 transition">
+          Enviar Respuesta
+        </button>
+      </form>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="container mx-auto py-20 px-6">
     <h3 class="text-3xl font-bold text-center text-pink-700 mb-12">Servicio al Cliente</h3>
@@ -103,6 +144,10 @@
     <p>&copy; 2025 FRESEATE - "Amor a la primera cucharada"</p>
   </footer>
 
+  <!-- SCRIPT para mostrar confirmación -->
+  <script>
+    const form = document.getElementById("mi-form");
+    const estado = document.getElementById("estado");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -115,40 +160,10 @@
       if (response.ok) {
         estado.innerHTML = '<p class="text-green-600 font-semibold">✅ ¡Gracias por tu mensaje! Te responderemos pronto.</p>';
         form.reset();
-    
+      }
+    });
+  </script>
 
 </body>
 </html>
-<!-- PRODUCTOS -->
-<section id="productos" class="container mx-auto py-20 px-6">
-  <h3 class="text-3xl font-bold text-center text-pink-700 mb-12">Nuestros Productos</h3>
-  
-  <!-- Tarjetas de productos -->
-  <div class="grid md:grid-cols-3 gap-8 mb-12">
-    <div class="bg-white rounded-2xl shadow p-6 text-center transform transition hover:scale-105 hover:shadow-lg">
-      <h4 class="text-xl font-bold text-pink-600">Clásico</h4>
-      <p class="mt-2">Fresas frescas con crema tradicional, el sabor de siempre.</p>
-    </div>
-    <div class="bg-white rounded-2xl shadow p-6 text-center transform transition hover:scale-105 hover:shadow-lg">
-      <h4 class="text-xl font-bold text-pink-600">Maracuyá</h4>
-      <p class="mt-2">Una mezcla tropical que combina lo ácido y lo dulce.</p>
-    </div>
-    <div class="bg-white rounded-2xl shadow p-6 text-center transform transition hover:scale-105 hover:shadow-lg">
-      <h4 class="text-xl font-bold text-pink-600">Oreo</h4>
-      <p class="mt-2">Perfecto para los amantes del chocolate y lo crocante.</p>
-    </div>
-  </div>
 
-  <!-- Galería de imágenes reales -->
-  <h4 class="text-2xl font-bold text-center text-pink-600 mb-6">Muestras Reales</h4>
-  <div class="grid md:grid-cols-2 gap-8">
-    <div class="bg-white rounded-2xl shadow overflow-hidden">
-      <img src="fresas.jpeg" alt="Logo Freseate" class="w-full h-72 object-contain">
-      <p class="text-center p-4 text-gray-700">Etiqueta oficial del producto</p>
-    </div>
-    <div class="bg-white rounded-2xl shadow overflow-hidden">
-      <img src="WhatsApp Image 2025-09-09 at 8.05.51 PM.jpeg" alt="Producto Freseate vaso" class="w-full h-72 object-cover">
-      <p class="text-center p-4 text-gray-700">Presentación real del vaso de fresas con crema</p>
-    </div>
-  </div>
-</section>
