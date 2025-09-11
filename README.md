@@ -103,10 +103,6 @@
     <p>&copy; 2025 FRESEATE - "Amor a la primera cucharada"</p>
   </footer>
 
-  <!-- SCRIPT para mostrar confirmación -->
-  <script>
-    const form = document.getElementById("mi-form");
-    const estado = document.getElementById("estado");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -119,11 +115,7 @@
       if (response.ok) {
         estado.innerHTML = '<p class="text-green-600 font-semibold">✅ ¡Gracias por tu mensaje! Te responderemos pronto.</p>';
         form.reset();
-      } else {
-        estado.innerHTML = '<p class="text-red-600 font-semibold">❌ Hubo un error. Intenta nuevamente.</p>';
-      }
-    });
-  </script>
+    
 
 </body>
 </html>
